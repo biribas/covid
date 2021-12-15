@@ -7,7 +7,6 @@ public class DataPaths
     private static final String URL = "https://data.brasil.io/dataset/covid19/caso.csv.gz";
     public static final String NULL = "";
     public static final String GZIP = ".gz";
-    public static final String METADATA = "metadata";
     
     /**
      * @return download URL 
@@ -25,6 +24,5 @@ public class DataPaths
     public static String getCustomPath(String prefix, String suffix)
     {
         return prefix + DATASET + suffix;
-        //return DataPaths.class.getResource(prefix + DATASET + suffix).toString();
     } 
 }
