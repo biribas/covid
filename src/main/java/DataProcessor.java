@@ -70,28 +70,28 @@ public class DataProcessor
         for (String[] dado : dados)
         {
             date = new Date();
-            Integer currentCases = Integer.parseInt(dado[1]);
-            Integer currentDeaths = Integer.parseInt(dado[2]);
+            Integer totalCases = Integer.parseInt(dado[1]);
+            Integer totalDeaths = Integer.parseInt(dado[2]);
 
             // Total
             date.setDate(dado[0]);
-            date.setTotalCases(currentCases);
-            date.setTotalDeaths(currentDeaths);
+            date.setTotalCases(totalCases);
+            date.setTotalDeaths(totalDeaths);
 
             // Daily
             Integer dailyCases;
             Integer dailyDeaths;
             if (i != 0)
             {
-                dailyCases = currentCases - dates.get(i - 1).getTotalCases();
+                dailyCases = totalCases - dates.get(i - 1).getTotalCases();
                 dailyCases = dailyCases < 0 ? 0 : dailyCases;
-                dailyDeaths = currentDeaths - dates.get(i - 1).getTotalDeaths();
+                dailyDeaths = totalDeaths - dates.get(i - 1).getTotalDeaths();
                 dailyDeaths = dailyDeaths < 0 ? 0 : dailyDeaths;
             }   
             else
             {
-                dailyCases = currentCases;
-                dailyDeaths = currentDeaths;
+                dailyCases = totalCases;
+                dailyDeaths = totalDeaths;
             }
             date.setDailyCases(dailyCases);
             date.setDailyDeaths(dailyDeaths);

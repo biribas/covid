@@ -101,7 +101,6 @@ public class ScreenController implements Initializable
         catch (IOException e)
         {
             messageLabel.setText(Status.getText(Status.ERROR, Status.INTERNET.getStatus()));
-            e.printStackTrace();
             return;
         }
         catch (URISyntaxException e)
@@ -116,12 +115,12 @@ public class ScreenController implements Initializable
         }
         catch (IOException e)
         {
-            messageLabel.setText(Status.getText(Status.ERROR, ""));
+            messageLabel.setText(Status.getText(Status.ERROR, DataPaths.NULL));
             return; 
         }
 
         localBox.setDisable(false);
-        messageLabel.setText(Status.getText(Status.SUCCSESS, ""));
+        messageLabel.setText(Status.getText(Status.SUCCSESS, DataPaths.NULL));
     }
     
     /**
@@ -134,11 +133,11 @@ public class ScreenController implements Initializable
         List<Date> dates;
         try 
         {
-            dates = DataProcessor.deserializer(Paths.get(DataPaths.getCustomPath(localBox.getValue() + "-", "")));
+            dates = DataProcessor.deserializer(Paths.get(DataPaths.getCustomPath(localBox.getValue() + "-", DataPaths.NULL)));
         }
         catch (NoSuchFileException e)
         {
-            messageLabel.setText(Status.getText(Status.FILE, ""));
+            messageLabel.setText(Status.getText(Status.FILE, DataPaths.NULL));
             return;
         }
         catch (IOException e)
@@ -163,6 +162,7 @@ public class ScreenController implements Initializable
 
         int upperBoundCases = 0, 
             upperBoundDeaths = 0;
+            
         for (Date date: dates)
         {
             lineCases.getData().add(new XYChart.Data<String, Number>(date.getDate(), (Number) date.getMovingCases()));

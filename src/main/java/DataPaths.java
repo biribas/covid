@@ -1,7 +1,8 @@
 /**
  * Class responsible for mananging the data paths
  */
-public class DataPaths {
+public class DataPaths 
+{
     private static final String DATASET = "dataset.csv";
     private static final String URL = "https://data.brasil.io/dataset/covid19/caso.csv.gz";
     public static final String NULL = "";
