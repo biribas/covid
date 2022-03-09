@@ -1,4 +1,4 @@
-# Covid Data Collectora 
+# Covid Data Collector
 A graphical user interface that collects latest covid-19 data in brazil.
 
 ### Dependencies
